@@ -1,6 +1,6 @@
 ﻿namespace Transformer
 {
-    partial class EncryptPasswordForm
+    partial class Encrypt
     {
         /// <summary>
         /// Required designer variable.
@@ -88,18 +88,19 @@
             this.encyPassErrorLbl.Size = new System.Drawing.Size(0, 13);
             this.encyPassErrorLbl.TabIndex = 5;
             // 
-            // EncryptPasswordForm
+            // Encrypt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 196);
+            this.ClientSize = new System.Drawing.Size(499, 196);
             this.Controls.Add(this.encyPassErrorLbl);
             this.Controls.Add(this.checkEncyPassBtn);
             this.Controls.Add(this.rePasswordText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordText);
-            this.Name = "EncryptPasswordForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "Encrypt";
             this.Text = "EncryptPasswordForm";
             this.ResumeLayout(false);
             this.PerformLayout();

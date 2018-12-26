@@ -12,9 +12,9 @@ using System.Drawing.Imaging;
 
 namespace Transformer
 {
-    public partial class EncryptPasswordForm : Form
+    public partial class Encrypt : Form
     {
-        public EncryptPasswordForm()
+        public Encrypt()
         {
             InitializeComponent();
         }
@@ -38,28 +38,27 @@ namespace Transformer
                     //var nameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
                     var ext = Path.GetExtension(fileName);
 
-                    Console.WriteLine(file);
                     Image img = Image.FromFile(Path.Combine(dir, fileName));
 
                     MemoryStream ms = new MemoryStream();
                     switch(ext.ToLower())
                     {
-                        case "jpeg":
+                        case ".jpeg":
                             img.Save(ms, ImageFormat.Jpeg);
                             break;
-                        case "jpg":
+                        case ".jpg":
                             img.Save(ms, ImageFormat.Jpeg);
                             break;
-                        case "png":
+                        case ".png":
                             img.Save(ms, ImageFormat.Png);
                             break;
-                        case "gif":
+                        case ".gif":
                             img.Save(ms, ImageFormat.Gif);
                             break;
-                        case "tiff":
+                        case ".tiff":
                             img.Save(ms, ImageFormat.Tiff);
                             break;
-                        case "bmp":
+                        case ".bmp":
                             img.Save(ms, ImageFormat.Bmp);
                             break;
                     }

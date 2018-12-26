@@ -19,13 +19,13 @@ namespace Transformer
 
         private void encryptBtn_Click(object sender, EventArgs e)
         {
-            var passwordForm = new EncryptPasswordForm();
+            var passwordForm = new Encrypt();
             passwordForm.ShowDialog();
         }
 
         private void decryptBtn_Click(object sender, EventArgs e)
         {
-
+            new Decrypt().ShowDialog();
         }
     }
 }
