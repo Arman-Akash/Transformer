@@ -19,8 +19,9 @@ namespace Transformer
 
         private void encryptBtn_Click(object sender, EventArgs e)
         {
-            var passwordForm = new Encrypt();
-            passwordForm.ShowDialog();
+            new ChooseFile().Show();
+            //var passwordForm = new Encrypt();
+            //passwordForm.ShowDialog();
         }
 
         private void decryptBtn_Click(object sender, EventArgs e)
