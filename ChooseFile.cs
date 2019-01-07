@@ -13,10 +13,13 @@ namespace Transformer
 {
     public partial class ChooseFile : Form
     {
+        private readonly string dir = @"C:\doc_management\media";
+        private string exportFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Document Management's Files");
+
         public ChooseFile()
         {
             InitializeComponent();
-            pathTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            pathTextBox.Text = exportFolder;
             PopulateFileDataGridView();
         }
 
@@ -28,6 +31,7 @@ namespace Transformer
             {
                 string foldername = folderBrowserDialog.SelectedPath;
                 pathTextBox.Text = foldername;
+                exportFolder = foldername;
             }
         }
 
@@ -39,7 +43,6 @@ namespace Transformer
             fileDataGridView.Columns[0].Name = "File Name";
             fileDataGridView.Columns[1].Name = "Date";
 
-            var dir = @"C:\doc_management\media";
             //var index = 0;
             foreach (string file in Directory.GetFiles(dir))
             {
@@ -56,6 +59,28 @@ namespace Transformer
             checkBoxColumn.ReadOnly = false;
             checkBoxColumn.FillWeight = 10;
             fileDataGridView.Columns.Add(checkBoxColumn);
+        }
+
+        private void fileDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            var fileName = fileDataGridView.CurrentRow.Cells["File Name"].Value.ToString();
+            pictureBox.Image = Image.FromFile(Path.Combine(dir, fileName));
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void encryptBtn_Click(object sender, EventArgs e)
+        {
+            var checkedRows = (from DataGridViewRow r in fileDataGridView.Rows
+                              where Convert.ToBoolean(r.Cells[2].Value) == true
+                              select r).ToList();
+            List<string> selectedFiles = new List<string>();
+            foreach (var row in checkedRows)
+            {
+                var fileName = Path.Combine(dir, row.Cells["File Name"].Value.ToString());
+                selectedFiles.Add(fileName);
+            }
+
+            new Encrypt(selectedFiles, exportFolder).ShowDialog();
         }
     }
 }
