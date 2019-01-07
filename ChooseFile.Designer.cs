@@ -32,7 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.fileDataGridView = new System.Windows.Forms.DataGridView();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // changePathBtn
@@ -69,15 +71,23 @@
             this.fileDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fileDataGridView.Location = new System.Drawing.Point(12, 153);
             this.fileDataGridView.Name = "fileDataGridView";
-            this.fileDataGridView.ReadOnly = true;
-            this.fileDataGridView.Size = new System.Drawing.Size(382, 274);
+            this.fileDataGridView.Size = new System.Drawing.Size(445, 522);
             this.fileDataGridView.TabIndex = 3;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(563, 153);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(485, 522);
+            this.pictureBox.TabIndex = 4;
+            this.pictureBox.TabStop = false;
             // 
             // ChooseFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1097, 687);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.fileDataGridView);
             this.Controls.Add(this.pathTextBox);
             this.Controls.Add(this.label1);
@@ -85,6 +95,7 @@
             this.Name = "ChooseFile";
             this.Text = "ChooseFile";
             ((System.ComponentModel.ISupportInitialize)(this.fileDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +106,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox pathTextBox;
         private System.Windows.Forms.DataGridView fileDataGridView;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

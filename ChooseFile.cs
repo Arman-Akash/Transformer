@@ -46,10 +46,15 @@ namespace Transformer
                 var fileName = Path.GetFileName(file);
                 fileDataGridView.Rows.Add(fileName, File.GetLastWriteTime(file));
             }
+
             fileDataGridView.Sort(fileDataGridView.Columns["Date"], ListSortDirection.Descending);
             fileDataGridView.DefaultCellStyle.Format = "dd-MMM-yy";
+
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.Name = "Select";
+            checkBoxColumn.Width = 50;
+            checkBoxColumn.ReadOnly = false;
+            checkBoxColumn.FillWeight = 10;
             fileDataGridView.Columns.Add(checkBoxColumn);
         }
     }

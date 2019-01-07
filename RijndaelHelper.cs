@@ -7,7 +7,7 @@ namespace Transformer
     public class RijndaelHelper
     {
         // Example usage: EncryptBytes(someFileBytes, "SensitivePhrase", "SodiumChloride");
-        public static byte[] EncryptBytes(byte[] inputBytes, string passPhrase, string saltValue= "F2a4hm#ze&ida64ba=Gu")
+        public static byte[] EncryptBytes(byte[] inputBytes, string passPhrase, string saltValue= "F2a4ze#hm&ida64ba=Gu")
         {
             RijndaelManaged RijndaelCipher = new RijndaelManaged();
 
@@ -30,7 +30,7 @@ namespace Transformer
         }
 
         // Example usage: DecryptBytes(encryptedBytes, "SensitivePhrase", "SodiumChloride");
-        public static byte[] DecryptBytes(byte[] encryptedBytes, string passPhrase, string saltValue = "F2a4hm#ze&ida64ba=Gu")
+        public static byte[] DecryptBytes(byte[] encryptedBytes, string passPhrase, string saltValue = "F2a4ze#hm&ida64ba=Gu")
         {
             RijndaelManaged RijndaelCipher = new RijndaelManaged();
 
