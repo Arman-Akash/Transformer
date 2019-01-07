@@ -9,13 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Transformer.Forms;
 
 namespace Transformer
 {
-    public partial class Decrypt : Form
+    public partial class Decrypt : UserControl
     {
-        public Decrypt()
+        private MainForm _MainForm;
+
+        public Decrypt(MainForm _MainForm)
         {
+            this._MainForm = _MainForm;
             InitializeComponent();
         }
 
@@ -75,8 +79,16 @@ namespace Transformer
                     File.WriteAllBytes(path, encryptedbyte);
                 }
             }
+        }
 
-            this.Close();
+        private void btnFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            DialogResult result = folderBrowserDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                tbSourcePath.Text = folderBrowserDialog.SelectedPath;
+            }
         }
     }
 }

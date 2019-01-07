@@ -8,42 +8,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Transformer.Forms;
 
 namespace Transformer
 {
     public partial class ChooseFile : Form
     {
+        private Encrypt _Encrypt;
+
         private readonly string dir = @"C:\doc_management\media";
         private string exportFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Document Management's Files");
 
-        public ChooseFile()
+        public ChooseFile(Encrypt _Encrypt)
         {
+            this._Encrypt = _Encrypt;
             InitializeComponent();
-            pathTextBox.Text = exportFolder;
             PopulateFileDataGridView();
         }
 
         private void changePathBtn_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            DialogResult result = folderBrowserDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                string foldername = folderBrowserDialog.SelectedPath;
-                pathTextBox.Text = foldername;
-                exportFolder = foldername;
-            }
+
         }
 
         private void PopulateFileDataGridView()
         {
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.Name = "Select";
+            checkBoxColumn.Width = 60;
+            checkBoxColumn.ReadOnly = false;
+            checkBoxColumn.FillWeight = 10;
+
+            fileDataGridView.DataSource = null;
             fileDataGridView.ColumnCount = 2;
 
-            //fileDataGridView.Columns[0].Name = "Select";
             fileDataGridView.Columns[0].Name = "File Name";
-            fileDataGridView.Columns[1].Name = "Date";
+            fileDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fileDataGridView.Columns[0].FillWeight = 50;
+            fileDataGridView.Columns[0].DividerWidth = 1;
+            fileDataGridView.Columns[0].ReadOnly = true;
 
-            //var index = 0;
+            fileDataGridView.Columns[1].Name = "Date";
+            fileDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fileDataGridView.Columns[1].FillWeight = 40;
+            fileDataGridView.Columns[1].DividerWidth = 1;
+            fileDataGridView.Columns[1].ReadOnly = true;
+
+            fileDataGridView.RowHeadersVisible = false;
+
+            fileDataGridView.Columns.Add(checkBoxColumn);
+
             foreach (string file in Directory.GetFiles(dir))
             {
                 var fileName = Path.GetFileName(file);
@@ -52,13 +66,6 @@ namespace Transformer
 
             fileDataGridView.Sort(fileDataGridView.Columns["Date"], ListSortDirection.Descending);
             fileDataGridView.DefaultCellStyle.Format = "dd-MMM-yy";
-
-            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-            checkBoxColumn.Name = "Select";
-            checkBoxColumn.Width = 50;
-            checkBoxColumn.ReadOnly = false;
-            checkBoxColumn.FillWeight = 10;
-            fileDataGridView.Columns.Add(checkBoxColumn);
         }
 
         private void fileDataGridView_SelectionChanged(object sender, EventArgs e)
@@ -80,7 +87,21 @@ namespace Transformer
                 selectedFiles.Add(fileName);
             }
 
-            new Encrypt(selectedFiles, exportFolder).ShowDialog();
+            _Encrypt.SetValues(selectedFiles);
+
+            this.Close();
+        }
+
+        private void metroGrid1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex % 2 == 0)
+            {
+                e.CellStyle.BackColor = Color.FromArgb(217, 247, 255);
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.FromArgb(205, 235, 255);
+            }
         }
     }
 }
