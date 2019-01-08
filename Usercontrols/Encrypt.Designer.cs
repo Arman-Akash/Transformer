@@ -179,7 +179,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 28);
             this.label1.TabIndex = 57;
-            this.label1.Text = "Retype Password :";
+            this.label1.Text = "Retype Key :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label3
@@ -192,7 +192,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(184, 28);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Password :";
+            this.label3.Text = "Encryption Key:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label10

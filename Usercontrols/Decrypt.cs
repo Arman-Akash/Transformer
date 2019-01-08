@@ -26,15 +26,16 @@ namespace Transformer
         private void DecryptBtn_Click(object sender, EventArgs e)
         {
             var password = passwordText.Text;
-            var dir = @"D:\docs\";
-            var exportDir = @"D:\export\";
+            var dir = tbSourcePath.Text;  // @"D:\docs\";
+            var exportDir = Path.Combine(Path.GetDirectoryName(dir), "decrypted files"); //@"D:\export\";
+            Directory.CreateDirectory(exportDir);
 
             foreach (string file in Directory.GetFiles(dir))
             {
                 //decrypt images
                 var fileName = Path.GetFileName(file);
                 var ext = Path.GetExtension(fileName);
-                var path = exportDir + fileName;
+                var path = Path.Combine(exportDir, fileName);
 
                 byte[] fileByte = File.ReadAllBytes(file);
                 byte[] decyImg = RijndaelHelper.DecryptBytes(fileByte, password);
@@ -79,6 +80,8 @@ namespace Transformer
                     File.WriteAllBytes(path, encryptedbyte);
                 }
             }
+
+            MessageBox.Show("Done");
         }
 
         private void btnFolder_Click(object sender, EventArgs e)

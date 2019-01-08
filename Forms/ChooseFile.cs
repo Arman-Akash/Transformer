@@ -17,7 +17,7 @@ namespace Transformer
         private Encrypt _Encrypt;
 
         private readonly string dir = @"C:\doc_management\media";
-        private string exportFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Document Management's Files");
+        //private string exportFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Document Management's Files");
 
         public ChooseFile(Encrypt _Encrypt)
         {
@@ -40,7 +40,7 @@ namespace Transformer
             checkBoxColumn.FillWeight = 10;
 
             fileDataGridView.DataSource = null;
-            fileDataGridView.ColumnCount = 2;
+            fileDataGridView.ColumnCount = 3;
 
             fileDataGridView.Columns[0].Name = "File Name";
             fileDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -53,6 +53,10 @@ namespace Transformer
             fileDataGridView.Columns[1].FillWeight = 40;
             fileDataGridView.Columns[1].DividerWidth = 1;
             fileDataGridView.Columns[1].ReadOnly = true;
+            fileDataGridView.Columns[1].Width = 80;
+
+            fileDataGridView.Columns[2].Name = "Path";
+            fileDataGridView.Columns[2].Visible = false;
 
             fileDataGridView.RowHeadersVisible = false;
 
@@ -61,7 +65,17 @@ namespace Transformer
             foreach (string file in Directory.GetFiles(dir))
             {
                 var fileName = Path.GetFileName(file);
-                fileDataGridView.Rows.Add(fileName, File.GetLastWriteTime(file));
+                fileDataGridView.Rows.Add(fileName, File.GetLastWriteTime(file), dir);
+            }
+
+            foreach (var folder in Directory.GetDirectories(dir))
+            {
+                var folderName = Path.GetFileName(folder);
+                foreach (var file in Directory.GetFiles(folder))
+                {
+                    var fileName = Path.GetFileName(file);
+                    fileDataGridView.Rows.Add(fileName, File.GetLastWriteTime(file), folder);
+                }
             }
 
             fileDataGridView.Sort(fileDataGridView.Columns["Date"], ListSortDirection.Descending);
@@ -71,19 +85,27 @@ namespace Transformer
         private void fileDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             var fileName = fileDataGridView.CurrentRow.Cells["File Name"].Value.ToString();
-            pictureBox.Image = Image.FromFile(Path.Combine(dir, fileName));
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            var filePath = fileDataGridView.CurrentRow.Cells["Path"].Value.ToString();
+            if (filePath != dir)
+            {
+                //System.Diagnostics.Process.Start(Path.Combine(filePath, fileName));
+            }
+            else
+            {
+                pictureBox.Image = Image.FromFile(Path.Combine(dir, fileName));
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            }
         }
 
         private void encryptBtn_Click(object sender, EventArgs e)
         {
             var checkedRows = (from DataGridViewRow r in fileDataGridView.Rows
-                              where Convert.ToBoolean(r.Cells[2].Value) == true
+                              where Convert.ToBoolean(r.Cells["Select"].Value) == true
                               select r).ToList();
             List<string> selectedFiles = new List<string>();
             foreach (var row in checkedRows)
             {
-                var fileName = Path.Combine(dir, row.Cells["File Name"].Value.ToString());
+                var fileName = Path.Combine(row.Cells["Path"].Value.ToString(), row.Cells["File Name"].Value.ToString());
                 selectedFiles.Add(fileName);
             }
 

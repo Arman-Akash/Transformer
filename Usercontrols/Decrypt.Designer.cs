@@ -112,7 +112,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(185, 28);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Password :";
+            this.label3.Text = "Decryption Key:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label10

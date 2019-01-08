@@ -35,10 +35,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseFile));
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.tlMain = new System.Windows.Forms.TableLayoutPanel();
+            this.fileDataGridView = new MetroFramework.Controls.MetroGrid();
             this.encryptBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.fileDataGridView = new MetroFramework.Controls.MetroGrid();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileDataGridView)).BeginInit();
@@ -47,9 +47,9 @@
             // pictureBox
             // 
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(425, 67);
+            this.pictureBox.Location = new System.Drawing.Point(580, 67);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(816, 671);
+            this.pictureBox.Size = new System.Drawing.Size(662, 671);
             this.pictureBox.TabIndex = 4;
             this.pictureBox.TabStop = false;
             // 
@@ -59,9 +59,9 @@
             this.tlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(61)))), ((int)(((byte)(80)))));
             this.tlMain.ColumnCount = 5;
             this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64F));
+            this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52F));
             this.tlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tlMain.Controls.Add(this.fileDataGridView, 1, 2);
             this.tlMain.Controls.Add(this.encryptBtn, 1, 3);
@@ -79,53 +79,6 @@
             this.tlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tlMain.Size = new System.Drawing.Size(1285, 816);
             this.tlMain.TabIndex = 21;
-            // 
-            // encryptBtn
-            // 
-            this.encryptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(164)))), ((int)(((byte)(110)))));
-            this.encryptBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.encryptBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.encryptBtn.FlatAppearance.BorderSize = 0;
-            this.encryptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.encryptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.encryptBtn.ForeColor = System.Drawing.Color.White;
-            this.encryptBtn.Location = new System.Drawing.Point(241, 743);
-            this.encryptBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.encryptBtn.Name = "encryptBtn";
-            this.encryptBtn.Size = new System.Drawing.Size(154, 44);
-            this.encryptBtn.TabIndex = 59;
-            this.encryptBtn.Text = "Done";
-            this.encryptBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.encryptBtn.UseVisualStyleBackColor = false;
-            this.encryptBtn.Click += new System.EventHandler(this.encryptBtn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(425, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(816, 32);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Preview";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(41, 29);
-            this.label10.Margin = new System.Windows.Forms.Padding(3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(353, 32);
-            this.label10.TabIndex = 57;
-            this.label10.Text = "Choose File";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fileDataGridView
             // 
@@ -177,13 +130,60 @@
             this.fileDataGridView.RowTemplate.Height = 28;
             this.fileDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.fileDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.fileDataGridView.Size = new System.Drawing.Size(353, 671);
+            this.fileDataGridView.Size = new System.Drawing.Size(508, 671);
             this.fileDataGridView.TabIndex = 60;
             this.fileDataGridView.UseCustomBackColor = true;
             this.fileDataGridView.UseCustomForeColor = true;
             this.fileDataGridView.UseStyleColors = true;
             this.fileDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.metroGrid1_CellPainting);
             this.fileDataGridView.SelectionChanged += new System.EventHandler(this.fileDataGridView_SelectionChanged);
+            // 
+            // encryptBtn
+            // 
+            this.encryptBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(164)))), ((int)(((byte)(110)))));
+            this.encryptBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.encryptBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.encryptBtn.FlatAppearance.BorderSize = 0;
+            this.encryptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.encryptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.encryptBtn.ForeColor = System.Drawing.Color.White;
+            this.encryptBtn.Location = new System.Drawing.Point(396, 743);
+            this.encryptBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.encryptBtn.Name = "encryptBtn";
+            this.encryptBtn.Size = new System.Drawing.Size(154, 44);
+            this.encryptBtn.TabIndex = 59;
+            this.encryptBtn.Text = "Done";
+            this.encryptBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.encryptBtn.UseVisualStyleBackColor = false;
+            this.encryptBtn.Click += new System.EventHandler(this.encryptBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(580, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(662, 32);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Preview";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(41, 29);
+            this.label10.Margin = new System.Windows.Forms.Padding(3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(508, 32);
+            this.label10.TabIndex = 57;
+            this.label10.Text = "Choose File";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ChooseFile
             // 
