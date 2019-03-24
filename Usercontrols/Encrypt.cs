@@ -18,7 +18,7 @@ namespace Transformer
         private readonly string dir = @"C:\doc_management\media";
         private List<string> selectedFiles = new List<string>();
 
-        private string exportFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Document Management's Files");
+        private string exportFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Encrypted Files");
 
         private MainForm _MainForm;
 
@@ -41,6 +41,7 @@ namespace Transformer
             {
                 var password = passwordText.Text;
                 var retypePasswrod = rePasswordText.Text;
+
                 if (!password.Equals(retypePasswrod))
                 {
                     encyPassErrorLbl.Text = "Password doesn't match";
@@ -52,6 +53,7 @@ namespace Transformer
                     {
                         var fileName = Path.GetFileName(file);
                         var ext = Path.GetExtension(fileName);
+                        Directory.CreateDirectory(Path.Combine(exportFolder));
 
                         if (ext == ".jpeg" || ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".tiff" || ext == ".bmp")
                         {
@@ -87,7 +89,6 @@ namespace Transformer
 
                             //encrypt bytes with password and salt
                             byte[] encrypterbyteImg = RijndaelHelper.EncryptBytes(byteImg, password);
-                            Directory.CreateDirectory(Path.Combine(exportFolder));
                             File.WriteAllBytes(Path.Combine(exportFolder, fileName), encrypterbyteImg);
                         }
                         else

@@ -44,33 +44,44 @@ namespace Transformer
                 var ext = Path.GetExtension(fileName);
                 var path = Path.Combine(exportDir, fileName);
 
-                byte[] fileByte = File.ReadAllBytes(file);
-                byte[] decyImg = RijndaelHelper.DecryptBytes(fileByte, password);
-                MemoryStream ms = new MemoryStream(decyImg);
-                Image img = Image.FromStream(ms);
+                //if (ext.ToLower().Equals(".jpeg") || ext.ToLower().Equals(".jpg") || ext.ToLower().Equals(".png") || 
+                //    ext.ToLower().Equals(".gif") || ext.ToLower().Equals(".tiff") || ext.ToLower().Equals(".bmp"))
+                //{
+
+                //    byte[] fileByte = File.ReadAllBytes(file);
+                //    byte[] decyImg = RijndaelHelper.DecryptBytes(fileByte, password);
+                //    MemoryStream ms = new MemoryStream(decyImg);
+                //    Image img = Image.FromStream(ms);
 
 
-                switch (ext.ToLower())
-                {
-                    case ".jpeg":
-                        img.Save(path, ImageFormat.Jpeg);
-                        break;
-                    case ".jpg":
-                        img.Save(path, ImageFormat.Jpeg);
-                        break;
-                    case ".png":
-                        img.Save(path, ImageFormat.Png);
-                        break;
-                    case ".gif":
-                        img.Save(path, ImageFormat.Gif);
-                        break;
-                    case ".tiff":
-                        img.Save(path, ImageFormat.Tiff);
-                        break;
-                    case ".bmp":
-                        img.Save(path, ImageFormat.Bmp);
-                        break;
-                }
+                //    switch (ext.ToLower())
+                //    {
+                //        case ".jpeg":
+                //            img.Save(path, ImageFormat.Jpeg);
+                //            break;
+                //        case ".jpg":
+                //            img.Save(path, ImageFormat.Jpeg);
+                //            break;
+                //        case ".png":
+                //            img.Save(path, ImageFormat.Png);
+                //            break;
+                //        case ".gif":
+                //            img.Save(path, ImageFormat.Gif);
+                //            break;
+                //        case ".tiff":
+                //            img.Save(path, ImageFormat.Tiff);
+                //            break;
+                //        case ".bmp":
+                //            img.Save(path, ImageFormat.Bmp);
+                //            break;
+                //    }
+                //}
+                //else
+                //{
+                    byte[] content = File.ReadAllBytes(file);
+                    byte[] encryptedbyte = RijndaelHelper.DecryptBytes(content, password);
+                    File.WriteAllBytes(path, encryptedbyte);
+                //}
             }
 
             //encrypt files
@@ -88,7 +99,7 @@ namespace Transformer
                 }
             }
 
-            MessageBox.Show("Done");
+            MessageBox.Show("Your files are decrypeted in " + exportDir);
         }
 
         private void btnFolder_Click(object sender, EventArgs e)

@@ -47,6 +47,7 @@
             // 
             this.tlMain.SetColumnSpan(this.pathTextBox, 2);
             this.pathTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pathTextBox.Enabled = false;
             this.pathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.pathTextBox.Location = new System.Drawing.Point(224, 54);
             this.pathTextBox.Name = "pathTextBox";
