@@ -25,9 +25,16 @@ namespace Transformer
 
         private void DecryptBtn_Click(object sender, EventArgs e)
         {
+            if (tbDestination.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Please select a destination folder!");
+
+                return;
+            }
+
             var password = passwordText.Text;
             var dir = tbSourcePath.Text;  // @"D:\docs\";
-            var exportDir = Path.Combine(Path.GetDirectoryName(dir), "decrypted files"); //@"D:\export\";
+            var exportDir = Path.Combine(tbDestination.Text, "Decrypted Files"); //@"D:\export\";
             Directory.CreateDirectory(exportDir);
 
             foreach (string file in Directory.GetFiles(dir))
@@ -91,6 +98,16 @@ namespace Transformer
             if (result == DialogResult.OK)
             {
                 tbSourcePath.Text = folderBrowserDialog.SelectedPath;
+            }
+        }
+
+        private void btnDestination_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            DialogResult result = folderBrowserDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                tbDestination.Text = folderBrowserDialog.SelectedPath;
             }
         }
     }

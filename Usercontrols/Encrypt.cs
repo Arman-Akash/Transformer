@@ -50,12 +50,13 @@ namespace Transformer
                     //var dir = @"C:\doc_management\media";
                     foreach (string file in selectedFiles)
                     {
-                        if(Path.GetDirectoryName(file) == dir)
+                        var fileName = Path.GetFileName(file);
+                        var ext = Path.GetExtension(fileName);
+
+                        if (ext == ".jpeg" || ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".tiff" || ext == ".bmp")
                         {
-                            //encrypt images
-                            var fileName = Path.GetFileName(file);
                             //var nameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
-                            var ext = Path.GetExtension(fileName);
+                            //encrypt images
 
                             //Image img = Image.FromFile(Path.Combine(dir, fileName));
                             Image img = Image.FromFile(file);
@@ -92,16 +93,16 @@ namespace Transformer
                         else
                         {
                             //encrypt files
-                            var folderName = Path.GetFileName(Path.GetDirectoryName(file));
-                            Directory.CreateDirectory(Path.Combine(exportFolder, folderName));
+                            //var folderName = Path.GetFileName(Path.GetDirectoryName(file));
+                            //Directory.CreateDirectory(Path.Combine(exportFolder, folderName));
                             var filename = Path.GetFileName(file);
                             byte[] content = File.ReadAllBytes(file);
                             byte[] encryptedbyte = RijndaelHelper.EncryptBytes(content, password);
-                            var path = Path.Combine(exportFolder, folderName, filename);
-                            File.WriteAllBytes(path, encryptedbyte);
+                            //var path = Path.Combine(exportFolder, folderName, filename);
+                            File.WriteAllBytes(Path.Combine(exportFolder, fileName), encryptedbyte);
                         }
                     }
-                    MessageBox.Show("Done");
+                    MessageBox.Show("Your files has been encryted to " + exportFolder);
                 }
             }
             else
@@ -124,8 +125,15 @@ namespace Transformer
 
         private void btnChooseFile_Click(object sender, EventArgs e)
         {
-            ChooseFile obj = new ChooseFile(this);
-            obj.ShowDialog();
+            //ChooseFile obj = new ChooseFile(this);
+            //obj.ShowDialog();
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = true;
+            if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                selectedFiles = fileDialog.FileNames.ToList();
+            }
         }
     }
 }
