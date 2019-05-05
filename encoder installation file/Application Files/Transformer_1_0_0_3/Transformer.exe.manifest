@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Transformer.exe" version="1.0.0.3" publicKeyToken="5d418d69a6762cf2" language="en" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="army_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Transformer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Transformer.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MetroFramework.dll" size="353280">
+      <assemblyIdentity name="MetroFramework" version="1.4.0.0" publicKeyToken="5F91A84759BF584A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wsEtMbSETineMVlPyWMqNypVNjHeCgoEyK+RZo43z0k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MetroFramework.Design.dll" size="16896">
+      <assemblyIdentity name="MetroFramework.Design" version="1.4.0.0" publicKeyToken="5F91A84759BF584A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>CkqWCC4ldn5GlwM2SbFsdqZS4SB1eizsq4CSrQ1xa2U=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MetroFramework.Fonts.dll" size="672256">
+      <assemblyIdentity name="MetroFramework.Fonts" version="1.4.0.0" publicKeyToken="5F91A84759BF584A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>yEOGmqylE1wtRylphfNcccqK9EMSiNBNSBxORsyT7iY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Transformer.exe" size="233440">
+      <assemblyIdentity name="Transformer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wWD4buvGPN4VOfPTrCJwzXi3M0nMUIvejVhlYP7hmyI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="army_icon.ico" size="43291">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9ELFrzVW+Cgl0ZCnwEPTuZYC1Xb0gy9yY2TSk7lB02M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Transformer.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-70EM9CV\Arman" issuerKeyHash="b93fd5fb6d721132e45a29a05cb339f1d5811db0" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>lL+9mgShpC5a9As7cw3u2xvgRqapJqB11ZAkydEljqU=</DigestValue></Reference></SignedInfo><SignatureValue>PknwkRL8B520ZoKJbLjUPY9P5WWvnL75+NQgs626xuTQxTyjlktlTJuwYgpQTtPd9qE0tEDGuY7pX4DRF/Ha5x/5QQTWKFacP6EO8c6jEL/zA/iOYblLYb43ePdJZQ2NkEjegkyf3v0bmrH0N9myii8m4VtgsJv1G7ZuovEMm+g=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>vOuI+jRgcqF8y/29LYVG61120b+cceZIYSaB1VfWrVSCQRqmv0zCPoutqJ5eSC/1O+qadkY5vwAqJY9JtC2pcz9b7+l39HE7TmSjQJLA+za7X1OgGNR4xZS3So9JyqhZqfzN+/+9JdZG3XREd7HHU6XIclZ88wQP8Q0Os7xeN30=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a58e25d1c92490d575a026a9a646e01bdbee0d733b0bf45a2ea4a1049abdbf94" Description="" Url=""><as:assemblyIdentity name="Transformer.exe" version="1.0.0.3" publicKeyToken="5d418d69a6762cf2" language="en" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-70EM9CV\Arman</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>VQEX4w7714MMWM+iCFejL8U/CafrgvqDuEqknCf3t1Y=</DigestValue></Reference></SignedInfo><SignatureValue>F41hXjDcXBbYx+vhN26DKW72gjO+pK6+wmzZBBkH2E/I1facS/WErNgt9CgM/FDhjbdDtD//uYYNluMRc3/iufJL+uqOp3JO8tx+Lmf2XXegnCXfamTHqVMb7Qv1fPhZ/D99PhUyXuhKIqDpwdgjw43JOqagid3sglaA3Ho2DIs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>vOuI+jRgcqF8y/29LYVG61120b+cceZIYSaB1VfWrVSCQRqmv0zCPoutqJ5eSC/1O+qadkY5vwAqJY9JtC2pcz9b7+l39HE7TmSjQJLA+za7X1OgGNR4xZS3So9JyqhZqfzN+/+9JdZG3XREd7HHU6XIclZ88wQP8Q0Os7xeN30=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQW999/kU5t4FGHHl5bqAftDANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtADcAMABFAE0AOQBDAFYAXABBAHIAbQBhAG4wHhcNMTkwMTA4MTEzODE1WhcNMjAwMTA4MTczODE1WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtADcAMABFAE0AOQBDAFYAXABBAHIAbQBhAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALzriPo0YHKhfMv9vS2FRutddtG/nHHmSGEmgdVX1q1UgkEapr9Mwj6LraieXkgv9TvqmnZGOb8AKiWPSbQtqXM/W+/pd/RxO05ko0CSwPs2u19ToBjUeMWUt0qPScqoWan8zfv/vSXWRt10RHexx1OlyHJWfPMED/ENDrO8Xjd9AgMBAAEwDQYJKoZIhvcNAQELBQADgYEAo1MShv9bPPAJlRsO1UM5Sn2RzTw099AmkOD8xjQpK6UPReO3iPs7o31MGcod8a0PYxfOpgaBHxxStbv1IjJPpe43QPSCsAlwoQPz/CPhhBKcWcyXhHeeBh4Wjp/Fl+JG6x2HjNCgWsNpa18gj2JkmCfly/mcpBrqsiHAQ3axWis=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
